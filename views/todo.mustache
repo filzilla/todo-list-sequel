@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link  rel="stylesheet" href = "./styles.css">
+</head>
+<body>
+    <h1> TODO List</h1>
+    <form action = "/todo" method = "post" class = "form-container">
+        <input class="text-box " type="text" name="newTodo">
+        <input class="submit" type="submit" value="Add new todo">
+
+        </form>
+
+        <h2>Todo List</h2>        
+<div>
+     {{#list}}
+    <form action="/todo/{{id}}" method="post">
+        {{^complete}}
+        <div class="not-complete-container">
+       
+         <input class="not-complete-button" name="complete" type="submit" value="complete"> </input><div class="not-complete-item">{{item}}</div>
+        </div>
+        {{/complete}}{{/list}}
+        
+             <h2>Completed List</h2>
+             {{#list}} {{#complete}}
+         <div class="complete">
+                  <span><strike> <p> {{item}}</p></strike></span>
+        </div>
+        {{/complete}}
+    </form>
+    {{/list}}
+
+
+<div>
+
+
+</body>
+</html>
